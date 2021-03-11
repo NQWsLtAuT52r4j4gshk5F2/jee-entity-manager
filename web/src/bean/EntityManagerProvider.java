@@ -13,7 +13,8 @@ import javax.persistence.PersistenceContext;
 public class EntityManagerProvider {
 
 	@Produces
-	@PersistenceContext
+	@PersistenceContext(unitName = "hbdb")
+	@EM(name = "em")
 	private static EntityManager em;
 
 	public EntityManagerProvider() {
