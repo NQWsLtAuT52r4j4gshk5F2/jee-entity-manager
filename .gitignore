@@ -1,0 +1,11 @@
+.git
+.metadata
+jboss-modules
+RemoteSystemsTempFiles
+standalone
+**.class
+**/build**
+**/.project**
+**/.settings**
+**/.classpath**
+**/Schema**
