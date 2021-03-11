@@ -11,7 +11,6 @@ import javax.persistence.PersistenceContext;
 @LocalBean
 @ApplicationScoped
 public class EntityManagerProvider {
-
 	@Produces
 	@PersistenceContext(unitName = "hbdb")
 	@EM(name = "em")

@@ -3,7 +3,6 @@ package web.service.rest;
 import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import bean.EM;
+import bean.hibernate.UserTransactionTest;
 import web.service.model.User;
 
 @Stateful
@@ -22,13 +21,13 @@ import web.service.model.User;
 @Consumes("application/json")
 public class Test {
 	@Inject
-	@EM(name = "em")
-	EntityManager em;
+	UserTransactionTest ut;
 
 	@GET
 	@Path("/{id}")
 	public Response test(@PathParam("id") Long id) {
-		User user = em.find(User.class, id);
+		User user = ut.findUser(id);
+
 		if (user != null)
 			return Response.ok(user).build();
 		else {
